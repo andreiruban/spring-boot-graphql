@@ -5,10 +5,10 @@ buildscript {
 }
 
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.2.71'
-    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.71'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.10'
+    id 'org.jetbrains.kotlin.plugin.jpa' version '1.3.10'
     id 'org.springframework.boot' version '2.1.3.RELEASE'
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.71'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.3.10'
 }
 
 apply plugin: 'kotlin-jpa'
@@ -38,9 +38,21 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    
+    //GraphQL
+    compile 'com.graphql-java-kickstart:graphql-spring-boot-starter:5.7.3'
+    // to embed Altair tool
+    runtime 'com.graphql-java-kickstart:altair-spring-boot-starter:5.7.3'
+    // to embed GraphiQL tool
+    runtime 'com.graphql-java-kickstart:graphiql-spring-boot-starter:5.7.3'
+    // to embed Voyager tool
+    runtime 'com.graphql-java-kickstart:voyager-spring-boot-starter:5.7.3'
+    // testing facilities
+    testCompile 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:5.7.3'
 }
 
 sourceCompatibility = 1.8
+
 compileKotlin {
     kotlinOptions {
         freeCompilerArgs = ["-Xjsr305=strict"]
