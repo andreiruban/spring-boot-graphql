@@ -24,6 +24,7 @@ group = 'io.blakit'
 bootJar {
     baseName = 'blakit-platform'
     version =  '0.1.0'
+    mainClassName = 'app.AppKt'
 }
 
 repositories {
