@@ -10,7 +10,7 @@ buildscript {
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.10'
     id 'org.jetbrains.kotlin.plugin.jpa' version '1.3.10'
-    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
     id 'org.jetbrains.kotlin.plugin.spring' version '1.3.10'
     id "com.palantir.docker" version "0.22.1"
 }
@@ -22,7 +22,8 @@ apply plugin: 'io.spring.dependency-management'
 group = 'io.blakit'
 
 bootJar {
-    baseName = 'blakit-platform'
+    mainClassName = 'app.AppKt'
+    archiveBaseName = 'blakit-platform'
     version =  '0.1.0'
 }
 
