@@ -22,7 +22,6 @@ apply plugin: 'io.spring.dependency-management'
 group = 'io.blakit'
 
 bootJar {
-    mainClassName = 'app.AppKt'
     archiveBaseName = 'blakit-platform'
     version =  '0.1.0'
 }
