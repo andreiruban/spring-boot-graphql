@@ -49,7 +49,6 @@ dependencies {
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
     
     //GraphQL
     compile 'com.graphql-java-kickstart:graphql-spring-boot-starter:5.7.3'
@@ -86,7 +85,7 @@ task unpack(type: Copy) {
 }
 docker {
 //    name "${project.group}/${bootJar.baseName}"
-    name "${'andreiruban'}/${bootJar.baseName}"
+    name "${'andreiruban'}/${bootJar.archiveBaseName}"
     copySpec.from(tasks.unpack.outputs).into("dependency")
     buildArgs(['DEPENDENCY': "dependency"])
 }
