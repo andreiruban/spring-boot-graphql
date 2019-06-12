@@ -12,12 +12,16 @@ import app.graphql.Mutation
 import app.graphql.PostResolver
 import app.graphql.Query
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 import java.util.UUID
 import kotlin.collections.ArrayList
 
 
 @Configuration
+@EnableJpaRepositories(basePackages = ["app.repository"])
+@ComponentScan(basePackages = ["app"])
 class GraphqlConfiguration {
 
     @Bean
@@ -64,12 +68,16 @@ class GraphqlConfiguration {
     @Bean
     fun authorResolver(postDao: PostDao): AuthorResolver = AuthorResolver(postDao)
 
-    @Bean
-    fun eventResolver(eventDao: EventDao): EventResolver = EventResolver(eventDao)
+//    @Bean
+//    fun eventResolver(eventDao: EventDao): EventResolver = EventResolver(eventDao)
 
     @Bean
-    fun query(postDao: PostDao, eventDao: EventDao): Query = Query(postDao, eventDao)
+    fun eventResolver(): EventResolver = EventResolver()
 
     @Bean
-    fun mutation(postDao: PostDao, eventDao: EventDao): Mutation = Mutation(postDao, eventDao)
+//    fun query(postDao: PostDao, eventDao: EventDao): Query = Query(postDao, eventDao)
+    fun query(postDao: PostDao): Query = Query(postDao)
+
+    @Bean
+    fun mutation(postDao: PostDao, eventDao: EventDao): Mutation = Mutation(postDao)
 }
