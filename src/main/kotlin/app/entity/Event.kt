@@ -15,8 +15,8 @@ data class Event(
         @GeneratedValue(generator = "system-uuid")
         @GenericGenerator(name = "system-uuid", strategy = "uuid")
         @Column(name = "e_id", updatable = false, nullable = false)
-        private val id: String = "",
+        var id: String? = null,
 
         @Column(name = "e_name", updatable = true, nullable = false)
-        private val name: String
+        var name: String
 )
